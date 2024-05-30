@@ -1,7 +1,10 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import rootRouter from './routes/rootRouter.js'
 var app=express()
+
+var port=process.env.PORT ||8000
 
 var  corsOptions  = {
     origin:["https://thegioimauxanh.com","http://localhost:3000","https://peaceful-sunflower-941f16.netlify.app"], //frontend url
@@ -20,7 +23,9 @@ var  corsOptions  = {
   app.use(express.json({ limit: '30mb' }));
   app.use(express.urlencoded({ extended: true, limit: '30mb' }));
 
+  app.use(rootRouter)
+
 
   app.listen(8000, ()=>{
-    console.log(`Server started on port 8000`)
+    console.log(`Server started on port ${port}`)
 })
