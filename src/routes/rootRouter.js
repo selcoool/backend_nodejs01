@@ -1,10 +1,8 @@
 import express from 'express'
-// import videoRouter from './videoRouter.js'
+import userRouter from './userRouter.js'
 
 const rootRouter = express.Router()
 
-rootRouter.use("/",(req,res)=>{
-    res.send('gggggggg11')
-})
+rootRouter.use("/",userRouter)
 
 export default rootRouter
